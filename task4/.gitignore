@@ -1,0 +1,6 @@
+*.class
+*.project
+*.classpath
+org.*
+/task4/target/**
+/task4/.settings
