@@ -1,15 +1,15 @@
 package ru.fedormakarov.task4;
 
-import java.util.LinkedList;
+import java.util.List;
 
 public class Result {
     private final int dividend;
     private final int divisor;
     private final int quotient;
     private final int remainder;
-    private final LinkedList<DivisionSteps> steps;
+    private final List<DivisionStep> steps;
 
-    public Result(int dividend, int divisor, int quotient, int remainder, LinkedList<DivisionSteps> steps) {
+    public Result(int dividend, int divisor, int quotient, int remainder, List<DivisionStep> steps) {
         super();
         this.dividend = dividend;
         this.divisor = divisor;
@@ -34,7 +34,7 @@ public class Result {
         return remainder;
     }
 
-    public LinkedList<DivisionSteps> getSteps() {
+    public List<DivisionStep> getSteps() {
         return steps;
     }
 
