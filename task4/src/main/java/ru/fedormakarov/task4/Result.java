@@ -37,5 +37,4 @@ public class Result {
     public List<DivisionStep> getSteps() {
         return steps;
     }
-
 }

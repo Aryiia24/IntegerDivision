@@ -33,7 +33,7 @@ public class IntegerDivisionFormatter {
             sb.append(repeatsCharacters(' ', numbsIndent + 1)
                     + repeatsCharacters('-', String.valueOf(currentStep.getMinuend()).length()) + "\r\n");
             if (i == sizeDivisionSteps - 1) {
-                sb.append(repeatsCharacters(' ', numbsIndent + 1) + currentStep.getPartialRemainder());
+                sb.append(repeatsCharacters(' ', numbsIndent+String.valueOf(currentStep.getMinuend()).length()) + currentStep.getPartialRemainder());
             }
             divisionSteps.removeFirst();
         }
