@@ -10,6 +10,11 @@ public class IntegerDivision {
         if (divisor == 0) {
             throw new IllegalArgumentException("Divisor should be > 0");
         }
+        
+        if(dividend<divisor) {
+            throw new IllegalArgumentException("Dividend shuolde be > divisor");
+        }
+        
         LinkedList<Integer> numbsDividend = intToNumbers(dividend);
         int minuend = numbsDividend.getFirst();
         numbsDividend.removeFirst();
@@ -24,7 +29,7 @@ public class IntegerDivision {
                 minuend = steps.getLast().getPartialRemainder();
             }
 
-            if (minuend < divisor || minuend == 0) {
+            if (minuend < divisor) {
                 minuend = (minuend * 10) + numbsDividend.getFirst();
                 numbsDividend.removeFirst();
                 if (minuend == 0) {

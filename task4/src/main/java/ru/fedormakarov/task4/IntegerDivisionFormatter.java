@@ -5,6 +5,9 @@ import java.util.LinkedList;
 public class IntegerDivisionFormatter {
 
     public String formatDivision(Result result) {
+        if(result == null) {
+            throw new IllegalArgumentException("Result shouldn't be null");
+        }
         LinkedList<DivisionStep> divisionSteps = (LinkedList<DivisionStep>) result.getSteps();
         StringBuilder sb = new StringBuilder();
 
