@@ -12,20 +12,20 @@ public class IntegerDivision {
         }
         
         if(dividend<divisor) {
-            throw new IllegalArgumentException("Dividend shuolde be > divisor");
+            throw new IllegalArgumentException("Dividend should be > divisor");
         }
         
         LinkedList<Integer> numbsDividend = intToNumbers(dividend);
         int minuend = numbsDividend.getFirst();
-        numbsDividend.removeFirst();
-        int countOfIterationOfCycle = 0;
+        int countIterationOfCycle = 0;
         int zeroCount = 0;
         int indentCount = 1;
+        numbsDividend.removeFirst();
 
         while (!numbsDividend.isEmpty()) {
             DivisionStep step = new DivisionStep();
 
-            if (countOfIterationOfCycle > 0) {
+            if (countIterationOfCycle > 0) {
                 minuend = steps.getLast().getPartialRemainder();
             }
 
@@ -33,7 +33,7 @@ public class IntegerDivision {
                 minuend = (minuend * 10) + numbsDividend.getFirst();
                 numbsDividend.removeFirst();
                 if (minuend == 0) {
-                    countOfIterationOfCycle++;
+                    countIterationOfCycle++;
                     zeroCount++;
                     indentCount++;
                     continue;
@@ -46,12 +46,12 @@ public class IntegerDivision {
             step.setPartialRemainder(minuend - step.getMultiply());
             steps.add(step);
 
-            if (countOfIterationOfCycle > 1) {
+            if (countIterationOfCycle > 1) {
                 step.setIndent(indentCount + zeroCount);
                 zeroCount = 0;
                 indentCount++;
             }
-            countOfIterationOfCycle++;
+            countIterationOfCycle++;
         }
         return new Result(dividend, divisor, dividend / divisor, dividend % divisor, steps);
     }
