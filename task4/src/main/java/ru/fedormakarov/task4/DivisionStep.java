@@ -39,10 +39,6 @@ public class DivisionStep {
         this.indent = indent;
     }
 
-    public void incrementsIndent() {
-        this.indent = this.indent + 1;
-    }
-
     public int getPartialRemainder() {
         return partialRemainder;
     }

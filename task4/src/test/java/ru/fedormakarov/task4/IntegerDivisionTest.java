@@ -14,21 +14,61 @@ class IntegerDivisionTest {
     void expectIllegalArgumentsException() {
         Exception exception1 = assertThrows(IllegalArgumentException.class, () -> integerDivision.divide(1, 0));
         Exception exception2 = assertThrows(IllegalArgumentException.class, () -> integerDivision.divide(1, 2));
+        Exception exception3 = assertThrows(IllegalArgumentException.class, () -> integerDivision.divide(-512, 4));
+        Exception exception4 = assertThrows(IllegalArgumentException.class, () -> integerDivision.divide(512, -4));
+        Exception exception5 = assertThrows(IllegalArgumentException.class, () -> integerDivision.divide(-512, -4));
     }
 
     @DisplayName("Testing divide method on correct output")
     @Test
     void exceptReturnOutput() {
 
-        assertEquals("_78945|4\r\n" + " 4    |-----\r\n" + " -    |19736\r\n" + "_38\r\n" + " 36\r\n" + " --\r\n"
-                + " _29\r\n" + "  28\r\n" + "  --\r\n" + "  _14\r\n" + "   12\r\n" + "   --\r\n" + "   _25\r\n"
-                + "    24\r\n" + "    --\r\n" + "     1", integerDivision.divide(78945, 4));
         assertEquals(
-                "_1005500|4\r\n" + " 8      |------\r\n" + " -      |251375\r\n" + "_20\r\n" + " 20\r\n" + " --\r\n"
-                        + " _5\r\n" + "  4\r\n" + "  -\r\n" + "  _15\r\n" + "   12\r\n" + "   --\r\n" + "   _30\r\n"
-                        + "    28\r\n" + "    --\r\n" + "    _20\r\n" + "     20\r\n" + "     --\r\n" + "      1",
+                "_78945|4\r\n"
+                + " 4    |-----\r\n"
+                + " -    |19736\r\n"
+                + "_38\r\n"
+                + " 36\r\n"
+                + " --\r\n"
+                + " _29\r\n"
+                + "  28\r\n"
+                + "  --\r\n"
+                + "  _14\r\n"
+                + "   12\r\n"
+                + "   --\r\n"
+                + "   _25\r\n"
+                + "    24\r\n"
+                + "    --\r\n"
+                + "     1", 
+                integerDivision.divide(78945, 4));
+        
+        assertEquals(
+                "_1005500|4\r\n"
+                + " 8      |------\r\n"
+                + " -      |251375\r\n"
+                + "_20\r\n"
+                + " 20\r\n"
+                + " --\r\n"
+                + " _5\r\n"
+                + "  4\r\n"
+                + "  -\r\n"
+                + "  _15\r\n"
+                + "   12\r\n"
+                + "   --\r\n"
+                + "   _30\r\n"
+                + "    28\r\n"
+                + "    --\r\n"
+                + "    _20\r\n"
+                + "     20\r\n"
+                + "     --\r\n"
+                + "      0",
                 integerDivision.divide(1005500, 4));
-    }
-    
-    
+        
+        assertEquals(
+                "_25|3\r\n"
+                + " 24|-\r\n"
+                + " --|8\r\n"
+                + "  1",
+                integerDivision.divide(25, 3));
+    }  
 }
