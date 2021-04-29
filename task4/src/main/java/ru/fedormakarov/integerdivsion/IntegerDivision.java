@@ -1,7 +1,9 @@
-package ru.fedormakarov.task4;
+package ru.fedormakarov.integerdivsion;
 
 import java.util.Collections;
 import java.util.LinkedList;
+
+
 
 public class IntegerDivision {
     private static final int LAST_STEP_WITHOUT_INDENT = 1;
@@ -15,14 +17,14 @@ public class IntegerDivision {
     private static final String MINUS = "_";
 
     public String divide(int dividend, int divisor) {
-        if (divisor == 0 || divisor < 0) {
+        if (divisor <= 0) {
             throw new IllegalArgumentException("Divisor should be > 0");
         }
 
-        if (dividend < divisor) {
+        if (dividend < divisor && dividend != 0) {
             throw new IllegalArgumentException("Dividend should be > divisor");
         }
-        
+
         if (dividend < 0) {
             throw new IllegalArgumentException("Dividend should be > 0");
         }
@@ -47,10 +49,10 @@ public class IntegerDivision {
         divisionSteps.removeFirst();
 
         int sizeDivisionSteps = divisionSteps.size();
-        
-        if(sizeDivisionSteps<=1) {
-            sb.append(repeatCharacter(' ',  String.valueOf(result.getDividend()).length())
-                    + String.valueOf(result.getRemainder()));  
+
+        if (sizeDivisionSteps <= 1) {
+            sb.append(repeatCharacter(' ', String.valueOf(result.getDividend()).length())
+                    + String.valueOf(result.getRemainder()));
         }
         for (int i = 0; i < sizeDivisionSteps; i++) {
             DivisionStep currentStep = divisionSteps.getFirst();
@@ -77,12 +79,14 @@ public class IntegerDivision {
 
         LinkedList<DivisionStep> steps = new LinkedList<>();
         LinkedList<Integer> ListDigitsOfDividend = intToDigis(dividend);
-        int minuend = ListDigitsOfDividend.getFirst();
+        int minuend = 0;
+
+        minuend = ListDigitsOfDividend.getFirst();
+        ListDigitsOfDividend.removeFirst();
+
         int countIterationOfCycle = 0;
         int zeroCount = 0;
         int indentCount = 1;
-
-        ListDigitsOfDividend.removeFirst();
 
         while (!ListDigitsOfDividend.isEmpty()) {
             DivisionStep step = new DivisionStep();

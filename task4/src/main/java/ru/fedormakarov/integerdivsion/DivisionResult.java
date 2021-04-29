@@ -1,4 +1,4 @@
-package ru.fedormakarov.task4;
+package ru.fedormakarov.integerdivsion;
 
 import java.util.List;
 

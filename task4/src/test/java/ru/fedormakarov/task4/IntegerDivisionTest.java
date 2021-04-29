@@ -5,6 +5,8 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
+import ru.fedormakarov.integerdivsion.IntegerDivision;
+
 class IntegerDivisionTest {
 
     private IntegerDivision integerDivision = new IntegerDivision();
