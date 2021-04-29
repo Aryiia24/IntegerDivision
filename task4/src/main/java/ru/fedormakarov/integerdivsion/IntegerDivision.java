@@ -21,7 +21,7 @@ public class IntegerDivision {
             throw new IllegalArgumentException("Divisor should be > 0");
         }
 
-        if (dividend < divisor && dividend != 0) {
+        if (dividend < divisor) {
             throw new IllegalArgumentException("Dividend should be > divisor");
         }
 
